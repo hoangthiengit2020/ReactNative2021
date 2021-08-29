@@ -55,12 +55,12 @@ const App = () => {
           <Tabs.Screen
             name="Home"
             component={HomeStackScreen}
-            options={{headerShown: false}}
+            // options={{headerShown: false}}
           />
           <Tabs.Screen
             name="Search"
             component={SearchStackScreen}
-            options={{headerShown: false}}
+            // options={{headerShown: false}}
           />
         </Tabs.Navigator>
 
