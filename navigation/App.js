@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Text, View} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -51,16 +52,38 @@ const App = () => {
   return (
     <>
       <NavigationContainer>
-        <Tabs.Navigator>
+        <Tabs.Navigator
+          screenOptions={{
+            headerShown: false,
+            tabBarActiveTintColor: 'red',
+            tabBarInactiveTintColor: 'brown',
+
+            // tabBarActiveBackgroundColor: 'yellow',
+            tabBarLabelStyle: {
+              // color: 'red',
+              fontSize: 20,
+            },
+          }}>
           <Tabs.Screen
             name="Home"
             component={HomeStackScreen}
+            options={{
+              tabBarLabel: 'Home!!',
+
+              tabBarIcon: ({color}) => (
+                <FontAwesome name="home" color={color} size={25} />
+              ),
+            }}
             // options={{headerShown: false}}
           />
           <Tabs.Screen
             name="Search"
             component={SearchStackScreen}
-            // options={{headerShown: false}}
+            options={{
+              tabBarIcon: ({color}) => (
+                <FontAwesome name="search" color={color} size={25} />
+              ),
+            }}
           />
         </Tabs.Navigator>
 
