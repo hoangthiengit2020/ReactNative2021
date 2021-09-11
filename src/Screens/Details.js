@@ -3,6 +3,7 @@ import {View, Button, Text, StyleSheet, Pressable} from 'react-native';
 import {Container} from './Container';
 
 export const Details = ({navigation, route}) => {
+  // console.log('Route from details ', route);
   return (
     <Container>
       <Text style={styles.text}>
