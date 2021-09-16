@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   SafeAreaView,
@@ -17,6 +17,17 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {
+  BallIndicator,
+  BarIndicator,
+  DotIndicator,
+  MaterialIndicator,
+  PacmanIndicator,
+  PulseIndicator,
+  SkypeIndicator,
+  UIActivityIndicator,
+  WaveIndicator,
+} from 'react-native-indicators';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
@@ -26,6 +37,7 @@ import {Profile} from './src/Screens/Profile';
 import MainTabScreens from './src/Screens/MainTabScreens';
 
 import {DrawerContents} from './src/Screens/DrawerContents';
+import RootStackScreen from './src/Screens/RootStackScreen';
 
 // const DetailsStack = createStackNavigator();
 // const DetailStackScreen = () => {
@@ -53,9 +65,12 @@ import {DrawerContents} from './src/Screens/DrawerContents';
 
 const Drawer = createDrawerNavigator();
 const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [userToken, setUserToken] = useState(null);
   return (
     <NavigationContainer>
-      <Drawer.Navigator
+      <RootStackScreen />
+      {/* <Drawer.Navigator
         drawerStyle={{
           backgroundColor: '#fff',
           width: 250,
@@ -68,7 +83,7 @@ const App = () => {
         drawerContent={props => <DrawerContents {...props} />}>
         <Drawer.Screen name="HomeDrawer" component={MainTabScreens} />
         <Drawer.Screen name="Profile" component={Profile} />
-      </Drawer.Navigator>
+      </Drawer.Navigator> */}
     </NavigationContainer>
   );
 };

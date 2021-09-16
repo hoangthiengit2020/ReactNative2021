@@ -25,13 +25,21 @@ export const DrawerContents = props => {
   const [dataKVHCCapXa, setDataKVHCCapXa] = React.useState([]);
 
   React.useEffect(() => {
-    API_KVHC.GetKHVC_Cha().then(res => {
-      setDataKVHCCha(res.data);
-    });
-    API_KVHC.GetKVHC_Con(731).then(res => {
-      console.log('kvhcon', res.data);
-      setDataKVHCCapXa(res.data);
-    });
+    API_KVHC.GetKHVC_Cha()
+      .then(res => {
+        setDataKVHCCha(res.data);
+      })
+      .catch(err => {
+        return err;
+      });
+    API_KVHC.GetKVHC_Con(731)
+      .then(res => {
+        console.log('kvhcon', res.data);
+        setDataKVHCCapXa(res.data);
+      })
+      .catch(err => {
+        return err;
+      });
   }, []);
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
@@ -51,7 +59,7 @@ export const DrawerContents = props => {
               <View style={{flexDirection: 'row', marginBottom: 10}}>
                 <Avatar.Image
                   source={{
-                    uri: 'https://miro.medium.com/max/1094/1*S-a7sHCYc9pwqh1LSDl4_w.jpeg',
+                    uri: 'https://thiepmung.com/images/frame/frame_icon/in-hinh-len-huy-hieu-4005780582177111.jpg',
                   }}
                   size={50}
                 />
@@ -96,7 +104,7 @@ export const DrawerContents = props => {
                     label={item.ten}
                     labelStyle={{color: 'blue', fontWeight: 'bold'}}
                     onPress={() => {
-                      alert(item.maKvhc);
+                      // alert(item.maKvhc);
                       // props.navigation.navigate('Home', {
                       //   screen: 'Details',
                       //   params: {
@@ -104,7 +112,9 @@ export const DrawerContents = props => {
                       //     name: 'name from drawerScreen',
                       //   },
                       // });
-                      props.navigation.navigate('Home', {id_kvhc: item.maKvhc});
+                      props.navigation.navigate('Details', {
+                        id_kvhc: item.maKvhc,
+                      });
                     }}
                   />
                 );

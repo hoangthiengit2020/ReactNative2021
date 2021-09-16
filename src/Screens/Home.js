@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import {Container} from './Container';
-export const Home = ({navigation, route}) => {
-  // console.log('route kvhc from home :', route);
+export const Home = props => {
+  let {navigation, route} = props;
+  console.log('route nagigation from home====== :', route);
   return (
     <Container>
       <Text style={styles.text}>Home</Text>
@@ -10,8 +11,8 @@ export const Home = ({navigation, route}) => {
         title="Go to Details"
         onPress={() =>
           navigation.navigate('Details', {
-            // id: 22,
-            name: 'from screen home',
+            // id: route.params.id_kvhc,
+            name: 'from screen home1',
           })
         }
       />

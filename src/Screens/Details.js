@@ -3,11 +3,12 @@ import {View, Button, Text, StyleSheet, Pressable} from 'react-native';
 import {Container} from './Container';
 
 export const Details = ({navigation, route}) => {
-  // console.log('Route from details ', route);
+  console.log('Route from details ', route);
   return (
     <Container>
       <Text style={styles.text}>
-        Details with params {route.params.id} and {route.params.name}
+        Details with params
+        {route.params.id_kvhc} and {route.params.name}
       </Text>
       <Button
         color="blue"
